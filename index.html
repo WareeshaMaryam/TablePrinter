@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Printer</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: plum;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 20px;
+        color: purple;
+        font-weight: 4rem;
+    }
+
+    input {
+        margin-top: 20px;
+        width: 200px;
+        height: 40px;
+        border: 2px solid black;
+        border-radius: 4px;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 80px;
+        height: 30px;
+        background: rgb(211, 36, 211);
+        border-radius: 4px;
+        box-shadow: 2px 2px grey;
+    }
+
+    button a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    button a:hover {
+        color: rgb(226, 226, 119);
+    }
+
+    #outcome {
+        color: green;
+        margin-top: 20px;
+        font-weight: bold;
+        padding-top: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 25px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Multiplication Table Operator</h1>
+        <div class="input">
+            <input type="number" id="number" placeholder="Enter a Number">
+            <input type="number" id="minnumber" placeholder="Minimum Value">
+            <input type="number" id="maxnumber" placeholder="Maximum Value">
+        </div>
+        <button onclick="table()"><a href="#">Get Table</a></button>
+        <button onclick="pageRefresh()"><a href="#">Refresh</a></button>
+        <p id="outcome"></p>
+    </div>
+
+
+
+
+
+
+    <script>
+        function table(){;
+            let tableNum = document.getElementById("number").value;
+            let miniLength = document.getElementById("minnumber").value;
+            let maxLenght = document.getElementById("maxnumber").value;
+
+            for(let i = miniLength; i <= maxLenght; i++){
+                document.getElementById("outcome").innerHTML += `${tableNum} X ${i} = ${tableNum * i} <br>`;
+            }
+        }
+
+        function pageRefresh(){
+            document.getElementById("number").value = "";
+            document.getElementById("minnumber").value = "";
+            document.getElementById("maxnumber").value = "";
+            document.getElementById("outcome").innerHTML = "";
+        }
+    </script>
+</body>
+
+</html>
